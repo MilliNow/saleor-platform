@@ -13,7 +13,7 @@ All Saleor services started from a single repository
 1. Clone the repository:
 
 ```
-$ git clone git@github.com:MilliNow/saleor-platform.git --recursive --jobs 3
+$ git clone git@github.com:theoliveland/saleor-platform.git --recursive --jobs 3
 ```
 
 2. We are using shared folders to enable live code reloading. Without this, Docker Compose will not start:
@@ -64,9 +64,9 @@ $ git submodule update --remote
 
 You can find the latest version of Saleor, storefront and dashboard in their individual repositories:
 
-- https://github.com/MilliNow/saleor
-- https://github.com/MilliNow/saleor-dashboard
-- https://github.com/MilliNow/saleor-storefront
+- https://github.com/theoliveland/saleor
+- https://github.com/theoliveland/saleor-dashboard
+- https://github.com/theoliveland/saleor-storefront
 
 ## How to solve issues with lack of available space or build errors after update
 
@@ -135,7 +135,7 @@ If you have any questions or feedback, do not hesitate to contact us via Spectru
 
 ## License
 
-Disclaimer: Everything you see here is open and free to use as long as you comply with the [license](https://github.com/MilliNow/saleor-platform/blob/master/LICENSE). There are no hidden charges. We promise to do our best to fix bugs and improve the code.
+Disclaimer: Everything you see here is open and free to use as long as you comply with the [license](https://github.com/theoliveland/saleor-platform/blob/master/LICENSE). There are no hidden charges. We promise to do our best to fix bugs and improve the code.
 
 Some situations do call for extra code; we can cover exotic use cases or build you a custom e-commerce appliance.
 

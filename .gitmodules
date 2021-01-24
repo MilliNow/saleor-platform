@@ -1,9 +1,9 @@
 [submodule "saleor"]
 	path = saleor
-	url = git@github.com:MilliNow/saleor.git
+	url = git@github.com:theoliveland/saleor.git
 [submodule "saleor-storefront"]
 	path = saleor-storefront
-	url = git@github.com:MilliNow/saleor-storefront.git
+	url = git@github.com:theoliveland/saleor-storefront.git
 [submodule "saleor-dashboard"]
 	path = saleor-dashboard
-	url = git@github.com:MilliNow/saleor-dashboard.git
+	url = git@github.com:theoliveland/saleor-dashboard.git
