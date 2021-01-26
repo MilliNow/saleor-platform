@@ -1,6 +1,6 @@
 HOST_NAME:=gcr.io
 PROJECT_ID:=oliveland-platform-100
-TAG ?= 0.8.0
+TAG ?= 0.15.1
 
 REPOS = saleor saleor-dashboard saleor-storefront
 .PHONY: images $(REPOS)
