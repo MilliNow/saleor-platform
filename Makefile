@@ -1,5 +1,5 @@
 HOST_NAME:=gcr.io
-PROJECT_ID:=oliveland-platform-100
+PROJECT_ID ?= oliveland-platform-100
 TAG ?= 0.15.1
 
 REPOS = saleor saleor-dashboard saleor-storefront
@@ -8,7 +8,7 @@ REPOS = saleor saleor-dashboard saleor-storefront
 images: $(REPOS)
 $(REPOS):
 	@echo "Building $@ image"
-	@cd $@ && docker build -t $@ .
+	@cd $@ && docker build -t $@ . --build-arg API_URI
 	@docker tag $@ $(HOST_NAME)/$(PROJECT_ID)/$@
 
 	@docker push $(HOST_NAME)/$(PROJECT_ID)/$@
@@ -31,4 +31,4 @@ install: build
 		--email admin@example.com
 
 run:
-	docker-compose up
+	COMPOSE_HTTP_TIMEOUT=200 docker-compose up
