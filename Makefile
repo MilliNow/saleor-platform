@@ -1,6 +1,7 @@
 HOST_NAME:=gcr.io
 PROJECT_ID ?= oliveland-platform-100
 TAG ?= 0.15.1
+NAMESPACE ?= prod
 
 REPOS = saleor saleor-dashboard saleor-storefront
 .PHONY: images $(REPOS)
@@ -14,7 +15,7 @@ $(REPOS):
 	@docker push $(HOST_NAME)/$(PROJECT_ID)/$@
 	@gcloud container images add-tag \
 		$(HOST_NAME)/$(PROJECT_ID)/$@ \
-		$(HOST_NAME)/$(PROJECT_ID)/$@:$(TAG) \
+		$(HOST_NAME)/$(PROJECT_ID)/$@:$(NAMESPACE)-$(TAG) \
 		--project $(PROJECT_ID) --quiet
 
 	@gcloud container images list-tags $(HOST_NAME)/$(PROJECT_ID)/$@ --project $(PROJECT_ID)
