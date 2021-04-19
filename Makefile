@@ -1,6 +1,6 @@
 HOST_NAME:=gcr.io
 PROJECT_ID ?= oliveland-platform-100
-TAG ?= 0.15.1
+TAG ?= 0.4.8
 NAMESPACE ?= prod
 
 REPOS = saleor saleor-dashboard saleor-storefront
