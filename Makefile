@@ -1,6 +1,6 @@
 HOST_NAME:=gcr.io
 PROJECT_ID ?= oliveland-platform-100
-TAG ?= 0.5.6
+TAG ?= 0.5.20
 NAMESPACE ?= prod
 
 REPOS = saleor saleor-dashboard saleor-storefront
@@ -9,9 +9,12 @@ REPOS = saleor saleor-dashboard saleor-storefront
 images: $(REPOS)
 $(REPOS):
 	@echo "Building $@ image"
-	@cd $@ && docker build -t $@ . --build-arg API_URI
+	@echo "Using API_URI: $(API_URI)"
+	@echo "Using GTM_ID: $(GTM_ID)"
+	@cd $@ && docker build -t $@ . --build-arg API_URI --build-arg GTM_ID
 	@docker tag $@ $(HOST_NAME)/$(PROJECT_ID)/$@
 
+	@echo "Tagging the image with tag: $(TAG)"
 	@docker push $(HOST_NAME)/$(PROJECT_ID)/$@
 	@gcloud container images add-tag \
 		$(HOST_NAME)/$(PROJECT_ID)/$@ \
@@ -19,7 +22,7 @@ $(REPOS):
 		--project $(PROJECT_ID) --quiet
 
 	@gcloud container images list-tags $(HOST_NAME)/$(PROJECT_ID)/$@ --project $(PROJECT_ID)
-	@echo "Image $@ built and published successfully"
+	@echo "Image $@ built and published successfully to: $(PROJECT_ID)"
 
 migrate:
 	COMPOSE_HTTP_TIMEOUT=200 docker-compose run --rm api python3 manage.py migrate
